@@ -2,14 +2,33 @@
   "name": "test-aws-automation",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon  src/server/index.ts",
+    "start": "tsc && node dist/server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "browser": "tsc && node dist/lib/chrome.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "selenium-webdriver": "^4.15.0"
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.1",
+    "pusher": "^5.2.0",
+    "pusher-js": "^8.3.0",
+    "selenium-webdriver": "^4.15.0",
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.21",
+    "@types/selenium-webdriver": "^4.1.20",
+    "@types/ws": "^8.5.10",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
   }
 }
