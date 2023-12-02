@@ -3,12 +3,15 @@ import { Builder, Browser, By, Key, until } from "selenium-webdriver";
 import chrome from "selenium-webdriver/chrome";
 import { sleep } from "../utils";
 import fs from "fs";
-const buffer = fs.readFileSync("/app/extension-poc.crx");
+const buffer = fs.readFileSync(
+  "/home/tejes/workflow/mym/realply/test-aws-automation/extension-poc.crx"
+);
 
 export class LinkedinActions {
   static async launcBrowserWithLinkedinAndUserSession() {
     try {
       let options = new chrome.Options();
+      options.setChromeBinaryPath("");
       options.addArguments("--no-sandbox");
       options.addArguments("--disable-dev-shm-usage");
       options.addExtensions(buffer);
