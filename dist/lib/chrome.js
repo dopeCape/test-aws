@@ -26,12 +26,7 @@ class LinkedinActions {
                 options.setChromeBinaryPath("");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
-                options.addExtensions(buffer);
-                // options.windowSize({
-                //   height: 1080,
-                //   width: 1920,
-                // });
-                // options.headless();
+                // options.addExtensions(buffer);
                 let driver = yield new selenium_webdriver_1.Builder()
                     .forBrowser(selenium_webdriver_1.Browser.CHROME)
                     .setChromeOptions(options)
