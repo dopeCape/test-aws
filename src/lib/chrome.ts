@@ -14,7 +14,12 @@ export class LinkedinActions {
       options.setChromeBinaryPath("");
       options.addArguments("--no-sandbox");
       options.addArguments("--disable-dev-shm-usage");
-      // options.addExtensions(buffer);
+      options.addArguments("--headless=new");
+      options.windowSize({
+        width: 1920,
+        height: 1080,
+      });
+      options.addExtensions(buffer);
       let driver = await new Builder()
         .forBrowser(Browser.CHROME)
         .setChromeOptions(options)
@@ -27,6 +32,10 @@ export class LinkedinActions {
           "AQEDATmgJn0CEgtGAAABi-5VcLUAAAGMP5EzAlYAOP-3emOkJQJkMBSZjH5EGlKEUP8WiftMZQlpod7l3rqh-uYocvI_Ki_U1BO1zuVKaR70htlq1jJ9qAmvNcYG4pGFuHJbMJ9gkJ-nbtvmYBV-LyXr",
       });
       await driver.get("https://linkedin.com");
+      const ss = await driver.takeScreenshot();
+      const data = ss.replace(/^data:image\/\w+;base64,/, "");
+      const ssBuffer = Buffer.from(data, "base64");
+      fs.writeFile("/home/tejes/ss.png", ssBuffer, () => { });
       return driver;
     } catch (error) {
       throw error;
